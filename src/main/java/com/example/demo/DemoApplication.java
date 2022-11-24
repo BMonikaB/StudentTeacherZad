@@ -22,21 +22,10 @@ import javax.transaction.Transactional;
 
 
 @SpringBootApplication
-@Transactional
 public class DemoApplication implements CommandLineRunner {
 
 
 	private static final Log LOGGER = LogFactory.getLog(DemoApplication.class);
-
-
-	@Autowired
-	private StudentTeacherServiceImpl studentTeacherService;
-	@Autowired
-	private StudentServiceImpl studentService;
-	@Autowired
-	private TeacherServiceImpl teacherService;
-
-
 
 
 
