@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+
 public interface StudentRepository extends JpaRepository<Student,Integer> {
     Optional<Student> findByFirstNameAndLastName(String firstName, String lastName);
 
-    //Nie zrozumiałam do konca czy miało być łaczenie tabel - do stronnicowania
+    //Nie zrozumiałam do konca czy miało być łaczenie tabel - do stronnicowania? jeżeli tak to:
     //@Query("SELECT s FROM student s" + " left join fetch s.teacherSet")
     //List<Student> findAllStudent(Pageable pageable);
 

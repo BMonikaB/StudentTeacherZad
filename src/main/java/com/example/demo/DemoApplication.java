@@ -65,11 +65,11 @@ public class DemoApplication implements CommandLineRunner {
 		studentService.addStudent(student3);
 		studentService.addStudent(student4);
 
-/*
+
 		studentTeacherService.addStudentToTeacher(student1,teacher1);
 		studentTeacherService.addStudentToTeacher(student2,teacher1);
 		studentTeacherService.removeStudentFromTeacher(student1,teacher1);
 
-*/
+
 	}
 }

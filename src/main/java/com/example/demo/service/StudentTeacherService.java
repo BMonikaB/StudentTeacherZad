@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
 public interface StudentTeacherService {
 
 
-    public void addStudentToTeacher(Student student, Teacher teacher) throws SchoolException;
-    public void removeStudentFromTeacher(Student student, Teacher teacher) throws SchoolException;
+    void addStudentToTeacher(Student student, Teacher teacher) throws SchoolException;
+    void removeStudentFromTeacher(Student student, Teacher teacher) throws SchoolException;
 }

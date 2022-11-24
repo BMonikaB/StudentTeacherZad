@@ -24,10 +24,8 @@ public class Student {
     @Email(message = "Email is not valid", regexp = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")
     private String email;
     private String field;
-
-
     @JsonBackReference(value = "student_id")
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "STUDENT_TEACHER_TABLE",
             joinColumns = {
@@ -42,16 +40,6 @@ public class Student {
 
     }
 
-
-    public Student(int id, String firstName, String lastName, int age, String email, String field) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.email = email;
-        this.field = field;
-    }
-
     public Student(String firstName, String lastName, int age, String email, String field) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -59,7 +47,6 @@ public class Student {
         this.email = email;
         this.field = field;
     }
-
     public void add(Teacher teacher) {
         teacherSet.add(teacher);
     }
@@ -123,5 +110,6 @@ public class Student {
     public void setTeacherSet(List<Teacher> teacherSet) {
         this.teacherSet = teacherSet;
     }
+
 
 }

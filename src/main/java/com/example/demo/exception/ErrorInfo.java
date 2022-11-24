@@ -8,9 +8,6 @@ public class ErrorInfo {
     private Integer errorCode;
     private LocalDateTime timeStamp;
 
-
-
-
     public String getErrorMessage() {
         return errorMessage;
     }

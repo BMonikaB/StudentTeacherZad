@@ -12,10 +12,12 @@ public interface StudentService {
 
 
     List<Student> getAllStudents() throws SchoolException;
+    public Student geStudent(Integer id) throws SchoolException;
+    public Student getStudentByNameAndLastName(String firstName, String lastName) throws SchoolException;
+    public List<Student> getAllStudentsWithPaging(int offset, int pageSize) throws SchoolException;
+    public List<Student> getAllStudentsSort(String field) throws SchoolException;
     public Integer addStudent(Student student) throws SchoolException;
     public void deleteStudent(Integer id) throws SchoolException;
-    public Student getStudentByNameAndLastName(String firstName, String lastName) throws SchoolException;
-    public Student geStudent(Integer id) throws SchoolException;
-    public List<Student> getAllStudentsWithPaging(int offset, int pageSize) throws SchoolException;
-    public List<Student> getAllStudentsSort(@PathVariable String field) throws SchoolException;
+
+
 }

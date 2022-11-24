@@ -6,7 +6,6 @@ import com.example.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,32 +27,17 @@ public class StudentServiceImpl implements StudentService{
         if(students.isEmpty()) throw  new SchoolException("Service.STUDENTS_NOT_FOUND");
         return students;
     }
-
-    @Override
-    public Integer addStudent(Student student){
-        Student student1  = studentRepository.save(student);
-        return student1.getId();
-    }
-
-    @Override
-    public void deleteStudent(Integer id) throws SchoolException {
-        Optional<Student> studentOptional = studentRepository.findById(id);
-        studentOptional.orElseThrow(()->new SchoolException("Service.STUDENT_NOT_FOUND"));
-        studentRepository.deleteById(id);
-    }
-
-    @Override
-    public Student getStudentByNameAndLastName(String firstName, String lastName) throws SchoolException {
-        Optional<Student> student2 = studentRepository.findByFirstNameAndLastName(firstName,lastName);
-        student2.orElseThrow(()->new SchoolException("Service.STUDENT_NOT_FOUND"));
-        return student2.get();
-    }
-
     @Override
     public Student geStudent(Integer id) throws SchoolException {
         Optional<Student> student1 = studentRepository.findById(id);
         if(student1.isEmpty()) throw  new SchoolException("Service.STUDENT_NOT_FOUND");
         return student1.get();
+    }
+    @Override
+    public Student getStudentByNameAndLastName(String firstName, String lastName) throws SchoolException {
+        Optional<Student> student2 = studentRepository.findByFirstNameAndLastName(firstName,lastName);
+        student2.orElseThrow(()->new SchoolException("Service.STUDENT_NOT_FOUND"));
+        return student2.get();
     }
 
     //Stronnicowanie
@@ -71,6 +55,23 @@ public class StudentServiceImpl implements StudentService{
         if(students.isEmpty()) throw new SchoolException("Service.STUDENTS_NOT_FOUND");
         return students;
     }
+
+    @Override
+    public Integer addStudent(Student student){
+        Student student1  = studentRepository.save(student);
+        return student1.getId();
+    }
+
+    @Override
+    public void deleteStudent(Integer id) throws SchoolException {
+        Optional<Student> studentOptional = studentRepository.findById(id);
+        studentOptional.orElseThrow(()->new SchoolException("Service.STUDENT_NOT_FOUND"));
+        studentRepository.deleteById(id);
+    }
+
+
+
+
 
 
 }

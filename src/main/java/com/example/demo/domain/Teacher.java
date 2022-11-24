@@ -24,22 +24,12 @@ public class Teacher {
     private String subject;
 
 
-    @ManyToMany(mappedBy = "teacherSet", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "teacherSet")
     private List<Student> studentSet = new ArrayList<>();
 
     public Teacher() {
 
     }
-
-    public Teacher(int id, String firstName, String lastName, int age, String email, String subject) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.email = email;
-        this.subject = subject;
-    }
-
 
     public Teacher(String firstName, String lastName, int age, String email, String subject) {
         this.firstName = firstName;
